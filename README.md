@@ -104,15 +104,6 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 3. Wire sensors per the pin definitions at the top of `SAGE_FINAL.ino`.
 4. Install libraries: `DHT`, `MAX30100_PulseOximeter`.
 5. Select **ESP32-S3** in the Arduino IDE and flash the firmware.
-
-datasets:
-SWELL-KW (SWELL Knowledge Work Dataset): DSI - SWELL Knowledge Work Dataset
-WESAD (Wearable Stress and Affect Detection): UBICOMP - WESAD Dataset Download
-Kaggle Datasets (Human Vital Signs & Air Quality):
-Kaggle - SWELL-KW Heart Rate Variability Dataset (Used for train.csv / test.csv)
-Kaggle - Human Vital Signs Dataset
-Kaggle - Air Quality / AQI Datasets
-
 ---
 
 ## Setup & Build
