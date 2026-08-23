@@ -1,0 +1,46 @@
+####   Resource Utilization Report   ####
+
+    Top level module name: sage_vireo
+
+    Resource usage:
+
+        CLB LUT5s:    344/1120 (30.71%)
+            Lut5:                          344 (30.71%)
+            Lut5 for Shift-register:       0 (0.00%)
+            Lut5 for Distributed memory:   0 (0.00%)
+
+        FFs:    174
+        CLB FFs: 163/1120 (14.55%)
+        IOB FFs: 11/736 (1.49%)
+
+        CLBs:      79/140 (56.43%)
+        Tiles:     1/1 (100.00%)
+
+        RTL Input ports:     3 
+        RTL Output ports:    9 
+        GPIOs:               11/19 (57.89%)
+
+        PLLs:        0/1 (0.00%)
+        OSCs:        0/1 (0.00%)
+        4k BRAMs:    0/8 (0.00%)
+
+        1 Clock
+           Clock 0: net   104, u_core.clk, Fanout: 50 CLBs
+           Total 1 unique clocks
+
+####   Resource Utilization Complete   ####
+
+TILE-REQ:		0		0		0		1
+
+### Total FPGA resources from current floorplan: ###
+                       184 IOBs
+                       140 Logic 6-LUT CLBs
+                              40 CLBs support RAM/SR
+
+Usage of Logic CLBs is 56.4%.
+    Logic-Memory CLB for RAM/Shift-Register is 0.0%.
+Usage of LUTs is 50.5%.
+    dual-LUTs is 11.4%.
+Usage of FF is 19.5%.
+    dual-FF is 9.6%.
+Usage of IO CLB is 6.0%.
