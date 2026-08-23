@@ -1,32 +1,3 @@
-# SAGE — Edge AI Biomedical System for Real-Time Physiological Risk Monitoring
-
-**SIH26181 — Qualcomm Inc. | MedTech / BioTech / HealthTech | Hardware**
-
-A secure, AI-powered personal health companion that delivers real-time, privacy-preserving health monitoring and early warning — entirely on-device, with no cloud dependency.
-
----
-
-## Table of Contents
-- [Overview](#overview)
-- [System Architecture](#system-architecture)
-- [Bioelectronics](#bioelectronics)
-- [VLSI Design](#vlsi-design)
-- [Power Electronics](#power-electronics)
-- [Embedded Systems + ML](#embedded-systems--ml)
-- [Setup & Build](#setup--build)
-- [Limitations](#limitations)
-
----
-
-## Overview
-
-Existing wearable health monitors share three problems: they run at constant computational effort regardless of urgency, they depend on cloud connectivity that fails exactly when disasters make it most unreliable, and they treat every reading with equal weight — missing early, subtle risk trends.
-
-SAGE addresses all three with a **regime-adaptive, edge-autonomous architecture**: a dedicated FPGA watchdog continuously evaluates incoming vitals at near-zero power cost, and wakes the power-hungry ML classifier only when a reading genuinely warrants it. Four engineering domains contribute equally load-bearing pieces — remove any one and the system stops working, not just degrades.
-
-```
-Sensors → FPGA (regime triage + wake decision) → ESP32-S3 (ML classification) → Alert
-```
 
 ---
 
@@ -42,7 +13,7 @@ Sensors → FPGA (regime triage + wake decision) → ESP32-S3 (ML classification
 
 ---
 
-## Bioelectronics
+## Sensor Interfacing and AFE
 
 **Role:** Sensor front-end — acquiring every physiological and environmental signal the rest of the system depends on.
 
@@ -52,6 +23,14 @@ Sensors → FPGA (regime triage + wake decision) → ESP32-S3 (ML classification
 - **MQ2** — air quality / toxic gas sensing for pollution-event resilience
 
 Every downstream computation — FPGA triage, ML classification, power scaling — depends entirely on the signal quality this layer delivers. Noisy or miscalibrated sensing here silently corrupts every regime decision made afterward.
+
+**Analog Front-End Design**
+
+Only the thermistor and MQ2 are true analog signals; MAX30100 and dual DHT22 digitize internally and connect over I²C/GPIO directly.
+
+Both analog channels share an active 2nd-order Sallen-Key low-pass filter (LM358, R = 10kΩ, C_feedback = 2µF, C_ground = 1µF), cutoff ~11.25Hz — passing real sensor signal while rejecting ~95% of 50Hz mains noise. Verified in LTspice (simulated cutoff 10.75Hz, clean Butterworth roll-off, no overshoot). Both channels digitize via the ESP32-S3's onboard ADC1, 12-bit shifted to 8-bit for the FPGA's RTL.
+
+MQ2's heater — the stack's most power-hungry sensor — is regime-gated via an N-channel MOSFET: duty-cycled in Stable regime, fully powered in Risk/Critical. A 1N4007 snubber diode clamps the switch-off spike to ~5.7V (LTspice-verified), extending the system's power-adaptive philosophy down into the sensing layer.
 
 ---
 
@@ -122,7 +101,7 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 **Authors**
 
 **Karthikeyan D** (Team Lead and ML Developer)
-**Tharun S** (Analog Front-end Design)
+**Tharun S** (Sensor Interfacing and Analog Front-end Design)
 **Pranav J** (VLSI Architect and FPGA interfacing)
 **Satvika Gobi** (Power Electronics Designer)
 **Adithya KS** (Embedded Systems and Integration)
