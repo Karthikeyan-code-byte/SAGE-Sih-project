@@ -13,7 +13,6 @@ A secure, AI-powered personal health companion that delivers real-time, privacy-
 - [VLSI Design](#vlsi-design)
 - [Power Electronics](#power-electronics)
 - [Embedded Systems + ML](#embedded-systems--ml)
-- [Repository Structure](#repository-structure)
 - [Setup & Build](#setup--build)
 - [Limitations](#limitations)
 
