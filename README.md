@@ -1,3 +1,26 @@
+# SAGE — Edge AI Biomedical System for Real-Time Physiological Risk Monitoring
+
+**SIH26181 — Qualcomm Inc. | MedTech / BioTech / HealthTech | Hardware**
+
+A secure, AI-powered personal health companion that delivers real-time, privacy-preserving health monitoring and early warning — entirely on-device, with no cloud dependency.
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [System Architecture](#system-architecture)
+- [Sensor Interfacing and AFE](#sensor-interfacing-and-afe)
+- [VLSI Design](#vlsi-design)
+- [Power Electronics](#power-electronics)
+- [Embedded Systems + ML](#embedded-systems--ml)
+- [Setup & Build](#setup--build)
+- [Limitations](#limitations)
+
+---
+
+## Overview
+
+Existing wearable health monitors share three problems: they run at constant computational effort regardless of urgency, they depend on cloud connectivity that fails exactly when disasters make it most unreliable, and they treat every reading with equal weight — missing early, subtle risk trends.
 
 ---
 
@@ -106,3 +129,4 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 **Satvika Gobi** (Power Electronics Designer)
 **Adithya KS** (Embedded Systems and Integration)
 **Shreenithi A** (Embedded Systems and Power Regulation)
+SAGE addresses all three with a **regime-adaptive, edge-autonomous architecture**: a dedicated FPGA watchdog continuously evaluates incoming vitals at near-zero power cost, and wakes the power-hungry ML classifier only when a reading genuinely warrants it. Four engineering domains contribute equally load-bearing pieces — remove any one and the system stops working, not just degrades.
