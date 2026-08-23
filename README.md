@@ -3,7 +3,6 @@
 **SIH26181 — Qualcomm Inc. | MedTech / BioTech / HealthTech | Hardware**
 
 A secure, AI-powered personal health companion that delivers real-time, privacy-preserving health monitoring and early warning — entirely on-device, with no cloud dependency.
-
 ---
 
 ## Table of Contents
