@@ -91,12 +91,13 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 - **ESP32-S3** — dual-core compute, onboard ADC, boots the FPGA bitstream over SPI at startup
 - **Serial link to FPGA** — 32-bit packetized sensor data sent over a 2-wire interface (data + clock)
 - **ML Model & Pipeline** — training, hyperparameter tuning, and conversion steps are documented in the [`Trained ML model.ipynb`](./Trained%20ML%20model.ipynb) Jupyter Notebook.
+- **Datasets Used** — SWELL-KW, WESAD, Human Vital Signs, and Air Quality / AQI datasets
 - **On-Device C/C++ Header Deployment** — after training, the model parameters and decision structures are compiled into an optimized C/C++ header file ([`model_data.h`](./model_data.h)), which is embedded directly into the ESP32-S3 firmware for ultra-fast, offline inference.
 - **12-tree Random Forest classifier** — takes 5 fused inputs (HR, SpO2, temperature, gas, humidity), runs *only* when `wake_flag` is high
 - **Personal baseline calibration** — a short on-boot learning phase establishes resting HR/temperature statistics per user
 - **5-rule predictive heuristics** — cheap, always-running checks (heatstroke onset, pollution exposure, hypoxia, cardiac stress surge, dehydration risk) that fire independently of the wake-gated ML model
 - **Local alerting** — LED/buzzer feedback per regime; no raw physiological data ever leaves the device
-
+  
 **Firmware & ML Setup:**
 1. Open and run [`Trained ML model.ipynb`](./Trained%20ML%20model.ipynb) in Jupyter / Google Colab to retrain or inspect the model workflow.
 2. Export/verify the generated C/C++ header file (`model_data.h`) and place it alongside `SAGE_FINAL.ino` in your sketch directory.
