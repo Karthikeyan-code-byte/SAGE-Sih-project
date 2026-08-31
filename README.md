@@ -141,6 +141,6 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 
 ## License & Terms of Use
 
-**Copyright (c) 2026 Karthikeyan D. All Rights Reserved.**
+**Copyright (c) 2026 Karthikeyan D, Tharun S, Pranav J, Satvika Gobi, Adithya KS, Shreenithi A. All Rights Reserved.**
 
 This repository is published for **viewing and reference purposes only**. You are welcome to review and inspect the code and hardware documentation. However, **no rights are granted to copy, replicate, run, modify, or distribute** any portion of this project without prior written consent.
