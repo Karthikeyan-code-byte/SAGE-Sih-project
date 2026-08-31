@@ -130,7 +130,7 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 
 **Authors**
 
-- **Karthikeyan D** (Team Lead and ML Developer)
+- **Karthikeyan D**(Team Lead — Microcontroller ML Deployment, AI Integration & Hardware Interfacing)
 - **Tharun S** (Sensor Interfacing and Analog Front-end Design)
 - **Pranav J** (VLSI Architect and FPGA interfacing)
 - **Satvika Gobi** (Power Electronics Designer)
@@ -138,3 +138,9 @@ This is what makes the system's power adaptivity compound rather than sit at a s
 - **Shreenithi A** (Embedded Systems and Power Regulation)
 
 -SAGE addresses all three with a **regime-adaptive, edge-autonomous architecture**: a dedicated FPGA watchdog continuously evaluates incoming vitals at near-zero power cost, and wakes the power-hungry ML classifier only when a reading genuinely warrants it. Four engineering domains contribute equally load-bearing pieces — remove any one and the system stops working, not just degrades.
+
+## License & Terms of Use
+
+**Copyright (c) 2026 Karthikeyan D. All Rights Reserved.**
+
+This repository is published for **viewing and reference purposes only**. You are welcome to review and inspect the code and hardware documentation. However, **no rights are granted to copy, replicate, run, modify, or distribute** any portion of this project without prior written consent.
